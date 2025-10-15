@@ -1,0 +1,27 @@
+<h1>Weather Forecast</h1>
+<% forecast_fields = {
+    "City" => :city,
+    "Postal Code" => :postal_code,
+    "Country" => :country,
+    "Temperature" => [:temperature_c, "°C"],
+    "High" => [:temp_max_c, "°C"],
+    "Low" => [:temp_min_c, "°C"],
+    "Condition" => :condition,
+    "Wind Speed" => [:wind_speed_m_s, "m/s"],
+    "Humidity" => [:humidity, "%"],
+    "Fetched At" => :fetched_at
+} %>
+
+<% forecast_fields.each do |label, key| %>
+    <p>
+        <strong><%= label %>:</strong>
+        <% if key.is_a?(Array) %>
+            <%= @forecast_result[key[0]] %><%= key[1] %>
+        <% else %>
+            <%= @forecast_result[key] %>
+        <% end %>
+    </p>
+<% end %>
+
+<p><strong>Cached:</strong> <%= @cached ? 'Yes' : 'No' %></p>
+<%= link_to 'Check Another', root_path %>

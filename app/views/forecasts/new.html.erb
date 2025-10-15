@@ -1,0 +1,12 @@
+<h1>Check Weather</h1>
+<%= form_with url: forecasts_path, method: :post, local: true do |f| %>
+  <div>
+    <%= label_tag :address, 'Address' %>
+    <%= text_field_tag :address, params[:address] %>
+  </div>
+  <div>
+    <%= label_tag :zip, 'ZIP Code' %>
+    <%= text_field_tag :zip, params[:zip] %>
+  </div>
+  <%= submit_tag 'Get Forecast' %>
+<% end %>
