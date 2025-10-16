@@ -47,15 +47,13 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
-  gem 'rspec-rails', '~> 6.0'
+  gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'capybara'
-  gem 'pry'
-  gem 'pry-rails'   # optional, enhances Rails console with Pry
-  gem 'pry-byebug'  # optional, adds step-by-step debugging
+  gem 'shoulda-matchers'
+  gem 'capybara'                # keep only one capybara entry
+  gem 'webdrivers'
+  gem 'rails-controller-testing' # add to enable assert_template / assigns in controller specs
 end
 
 group :development do

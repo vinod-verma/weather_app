@@ -1,8 +1,23 @@
 # Weather App
 
 ## Overview
+A Ruby on Rails application that provides weather forecasts based on address or ZIP code input, with 30-minute result caching.
 
-A Ruby on Rails app that accepts an address or ZIP code, retrieves (simulated) weather data, and caches results by ZIP code for 30 minutes.
+## Technical Requirements
+- Ruby 3.2.2
+- Rails 7.1.3
+- SQLite3
+
+## Installation and Setup
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd weather_app
+
+# Install dependencies
+bundle install
+```
 
 ## Object Decomposition
 
@@ -35,26 +50,3 @@ A Ruby on Rails app that accepts an address or ZIP code, retrieves (simulated) w
 - Clear naming and encapsulation.
 - Single-responsibility methods.
 - Code reuse via service objects.
-
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
