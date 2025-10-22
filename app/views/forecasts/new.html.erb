@@ -1,19 +1,25 @@
 <h1>Check Weather</h1>
 
+<p class="help-callout">Enter either an Address or a ZIP Code. Examples: Address "1600 Amphitheatre Parkway, Mountain View, CA" or ZIP "90210".</p>
+
 <% if flash.any? %>
   <% flash.each do |type, message| %>
     <div class="flash <%= type %>"><%= message %></div>
   <% end %>
 <% end %>
 
-<%= form_with url: forecasts_path, method: :post, local: true do |f| %>
-  <div>
+<%= form_with url: forecasts_path, method: :post, local: true, html: { class: 'forecast-form' } do |f| %>
+  <div class="field">
     <%= label_tag :address, 'Address' %>
-    <%= text_field_tag :address, params[:address] %>
+    <%= text_field_tag :address, params[:address], placeholder: 'e.g., 1600 Amphitheatre Parkway, Mountain View, CA', aria: { describedby: 'address_hint' }, autofocus: true %>
+    <p id="address_hint" class="hint">Example: 1600 Amphitheatre Parkway, Mountain View, CA</p>
   </div>
-  <div>
+  <div class="field">
     <%= label_tag :zip, 'ZIP Code' %>
-    <%= text_field_tag :zip, params[:zip] %>
+    <%= text_field_tag :zip, params[:zip], placeholder: 'e.g., 90210', aria: { describedby: 'zip_hint' }, pattern: '\\d{5}(-\\d{4})?' %>
+    <p id="zip_hint" class="hint">Example: 90210 (US ZIP). Enter either ZIP or Address above.</p>
   </div>
-  <%= submit_tag 'Get Forecast' %>
+  <div class="actions">
+    <%= submit_tag 'Get Forecast' %>
+  </div>
 <% end %>

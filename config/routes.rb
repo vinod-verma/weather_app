@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   root 'forecasts#new'
   resources :forecasts, only: [:new, :create, :show]
+  # JSON weather endpoint removed as unused; using forecasts controller/views only
+
 
   # Defines the root path route ("/")
   # root "posts#index"

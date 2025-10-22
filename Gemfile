@@ -27,6 +27,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem 'dotenv-rails'
 gem 'geocoder'
+gem 'httparty'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -69,6 +70,6 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
   gem "selenium-webdriver"
+  gem "webmock"
 end

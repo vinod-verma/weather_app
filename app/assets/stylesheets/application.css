@@ -13,3 +13,63 @@
  *= require_tree .
  *= require_self
  */
+
+/* Simple form styling */
+.forecast-form {
+	max-width: 640px;
+	margin: 1rem 0 2rem;
+}
+
+.field {
+	margin-bottom: 1rem;
+}
+
+.field label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 0.25rem;
+}
+
+.field input[type="text"] {
+	width: 100%;
+	padding: 0.5rem 0.625rem;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+}
+
+.hint {
+	margin: 0.375rem 0 0;
+	color: #555;
+	font-size: 0.9rem;
+}
+
+.help-callout {
+	background: #f6f8fa;
+	border: 1px solid #e5e7eb;
+	padding: 0.75rem 1rem;
+	border-radius: 8px;
+	max-width: 720px;
+}
+
+.actions input[type="submit"] {
+	background: #2563eb;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	padding: 0.5rem 0.9rem;
+	cursor: pointer;
+}
+
+.actions input[type="submit"]:hover {
+	opacity: 0.9;
+}
+
+.flash.alert {
+	background: #fee2e2;
+	color: #991b1b;
+	border: 1px solid #fecaca;
+	padding: 0.5rem 0.75rem;
+	border-radius: 6px;
+	margin: 0.75rem 0;
+	max-width: 720px;
+}

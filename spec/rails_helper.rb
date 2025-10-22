@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'shoulda/matchers'
 require 'rails-controller-testing'   # add this line
+require 'webmock/rspec'
 
 Rails::Controller::Testing.install    # enable assert_template / assigns helpers
 
@@ -69,3 +70,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+# Disable external HTTP connections during test, allow local server/Capybara
+WebMock.disable_net_connect!(allow_localhost: true)

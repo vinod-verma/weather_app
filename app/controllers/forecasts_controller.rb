@@ -19,8 +19,7 @@ class ForecastsController < ApplicationController
       return unless postal_code # Halt if fetch_postal_from_address rendered :new
     end
 
-    weather_service = WeatherSimulatorService.new
-    result = weather_service.fetch_by_postal(postal_code)
+  result = weather_client.fetch_by_postal(postal_code)
     @forecast_result = result[:data]
     @cached = result[:cached]
 
@@ -41,5 +40,16 @@ class ForecastsController < ApplicationController
       return nil # Ensure the action halts
     end
     geo[:postal_code]
+  end
+
+  # Select which weather provider to use.
+  # Default to simulator for tests/dev; set WEATHER_PROVIDER=api to use OpenWeather.
+  def weather_client
+    provider = ENV['WEATHER_PROVIDER']&.downcase
+    if provider == 'api'
+      OpenWeatherService.new
+    else
+      WeatherSimulatorService.new
+    end
   end
 end
